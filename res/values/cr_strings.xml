@@ -1322,4 +1322,9 @@
     <string name="show_pif_properties_title">Play Integrity Fix properties</string>
     <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
     <string name="error_loading_properties">Error loading PIF properties</string>
+
+    <!-- IME button space -->
+    <string name="navigation_bar_ime_space_title">Hide IME button space</string>
+    <string name="navigation_bar_ime_space_summary">Hide IME button space below keyboard</string>
+
 </resources>
