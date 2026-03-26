@@ -65,6 +65,13 @@
          android:summary="@string/disable_flash_sms_summary"
          android:defaultValue="false"/>
 
+    <!-- Block PairIP license activity -->
+     <com.crdroid.settings.preferences.SystemPropertySwitchPreference
+         android:key="persist.sys.pairip.activity.block"
+         android:title="@string/miscellaneous_pairip_activity_block_title"
+         android:summary="@string/miscellaneous_pairip_activity_block_summary"
+         android:defaultValue="false" />
+
     <!-- Parallel space -->
     <Preference
         android:key="parallel_space"
