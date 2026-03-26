@@ -72,6 +72,13 @@
          android:summary="@string/miscellaneous_pairip_activity_block_summary"
          android:defaultValue="false" />
 
+   <!-- Shake Gesture -->
+     <Preference
+          android:key="gesture_shake_action"
+          android:title="@string/shake_gestures_enabled_title"
+          android:summary="@string/shake_gestures_enabled_summary"
+          android:fragment="com.crdroid.settings.fragments.misc.ShakeGestures" />
+
     <!-- Parallel space -->
     <Preference
         android:key="parallel_space"
