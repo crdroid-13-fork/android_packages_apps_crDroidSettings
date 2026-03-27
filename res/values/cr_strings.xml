@@ -1350,4 +1350,8 @@
     <string name="vbmeta_attestation_title">Autofix VBMeta detection</string>
     <string name="vbmeta_attestation_summary">Perform key attestation to generate verified boot hash on boot. Requires system restart.</string>
 
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Disable Flash SMS</string>
+    <string name="disable_flash_sms_summary">Converts full-screen flash messages into standard text SMS.</string>
+
 </resources>

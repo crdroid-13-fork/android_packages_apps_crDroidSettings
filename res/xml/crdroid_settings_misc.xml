@@ -58,6 +58,13 @@
         android:summary="@string/gms_enabled_summary"
         android:fragment="com.crdroid.settings.fragments.misc.GmsSwitch"/>
 
+    <!-- Disable flash sms -->
+     <com.crdroid.settings.preferences.SystemSettingSwitchPreference
+         android:key="disable_flash_sms"
+         android:title="@string/disable_flash_sms_title"
+         android:summary="@string/disable_flash_sms_summary"
+         android:defaultValue="false"/>
+
     <!-- Parallel space -->
     <Preference
         android:key="parallel_space"
