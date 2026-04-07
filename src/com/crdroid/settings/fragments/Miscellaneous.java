@@ -99,21 +99,9 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         final Resources res = getResources();
 
         mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
-        if (mPifJsonFilePreference != null) {
-            mPifJsonFilePreference.setOnPreferenceClickListener(pref -> {
-                openFileSelector(10001);
-                return true;
-            });
-        }
         mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
-        if (mGamePropsJsonFilePreference != null) {
-            mGamePropsJsonFilePreference.setOnPreferenceClickListener(pref -> {
-                openFileSelector(10002);
-                return true;
-            });
-        }
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
-        
+
         mKeyboxFilePickerLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
         result -> {
@@ -148,7 +136,19 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-    if ("show_pif_properties".equals(preference.getKey())) {
+    if (preference == mPifJsonFilePreference) {
+        mPifJsonFilePreference.setOnPreferenceClickListener(pref -> {
+            openFileSelector(10001);
+            return true;
+        });
+        return true;
+    } else if (preference == mGamePropsJsonFilePreference) {
+        mGamePropsJsonFilePreference.setOnPreferenceClickListener(pref -> {
+            openFileSelector(10002);
+            return true;
+        });
+        return true;
+    } else if ("show_pif_properties".equals(preference.getKey())) {
         showPropertiesDialog();
         return true;
     }
