@@ -64,7 +64,8 @@
          android:key="show_pif_properties"
          android:icon="@drawable/ic_google"
          android:title="@string/show_pif_properties_title"
-         android:summary="@string/show_pif_properties_summary"/>
+         android:summary="@string/show_pif_properties_summary"
+         android:dependency="persist.sys.pixelprops.all"/>
 
     <!-- hide developer option -->
     <Preference
