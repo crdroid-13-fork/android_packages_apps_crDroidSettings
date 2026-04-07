@@ -46,7 +46,6 @@
        android:key="game_props_json_file_preference"
        android:icon="@drawable/ic_file_import"
        android:title="@string/gameprops_load_json_title"
-       android:dependency="persist.sys.gameprops.enabled"
        android:summary="@string/gameprops_load_json_summary" />
     </PreferenceCategory>
 
@@ -58,7 +57,6 @@
          android:key="pif_json_file_preference"
          android:icon="@drawable/ic_play_integrity_fix"
          android:title="@string/pif_spoofing_title"
-         android:dependency="persist.sys.pixelprops.pi"
          android:summary="@string/pif_spoofing_summary"/>
 
     <!-- displaying current PIF properties -->
@@ -66,8 +64,7 @@
          android:key="show_pif_properties"
          android:icon="@drawable/ic_google"
          android:title="@string/show_pif_properties_title"
-         android:summary="@string/show_pif_properties_summary"
-         android:dependency="persist.sys.pixelprops.pi"/>
+         android:summary="@string/show_pif_properties_summary"/>
 
     <!-- hide developer option -->
     <Preference
