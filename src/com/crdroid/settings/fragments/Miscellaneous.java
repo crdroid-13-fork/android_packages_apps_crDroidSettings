@@ -19,7 +19,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -29,7 +28,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import android.app.Activity;
-import android.app.AlertDialog;
+import android.app.AlertDialog; 
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -42,10 +41,6 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 
 import com.crdroid.settings.fragments.misc.GmsSwitch;
-import com.crdroid.settings.fragments.misc.KeyboxDataPreference;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-
 import com.crdroid.settings.fragments.misc.SensorBlock;
 
 import java.util.List;
@@ -75,10 +70,6 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
     private static final String KEY_GAME_PROPS_JSON_FILE_PREFERENCE = "game_props_json_file_preference";
     private static final String KEY_PIF_JSON_FILE_PREFERENCE = "pif_json_file_preference";
 
-    private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
-    private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
-    private KeyboxDataPreference mKeyboxDataPreference;
-
     private Preference mPocketJudge;
     private Preference mPropOptionsPi;
 
@@ -102,19 +93,6 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
         mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
         mGamePropsSpoof.setOnPreferenceChangeListener(this);
 
-        mKeyboxFilePickerLauncher = registerForActivityResult(
-        new ActivityResultContracts.StartActivityForResult(),
-        result -> {
-            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-            Uri uri = result.getData().getData();
-            Preference pref = findPreference(KEYBOX_DATA_KEY);
-            if (pref instanceof KeyboxDataPreference) {
-                ((KeyboxDataPreference) pref).handleFileSelected(uri);
-            }
-        }
-    }
-    );
-     
         mPropOptionsPi = (Preference) findPreference(SYS_PROP_OPTIONS_PI);
         mPropOptionsPi.setOnPreferenceChangeListener(this);
 
@@ -123,15 +101,6 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
                 com.android.internal.R.bool.config_pocketModeSupported);
         if (!mPocketJudgeSupported)
             prefScreen.removePreference(mPocketJudge);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
-        if (mKeyboxDataPreference != null) {
-            mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
-        }
     }
 
     @Override
