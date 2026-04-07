@@ -1305,8 +1305,4 @@
     <string name="qs_panel_style_reflected">Reflected</string>
     <string name="qs_panel_style_surround">Surround</string>
     <string name="qs_panel_style_thin">ThinLine</string>
-
-    <!-- PIF spoofing -->
-    <string name="pif_spoofing_title">Select PIF JSON File</string>
-    <string name="pif_spoofing_summary">Pick PIF JSON file to be used for spoofing play integrity</string>
 </resources>

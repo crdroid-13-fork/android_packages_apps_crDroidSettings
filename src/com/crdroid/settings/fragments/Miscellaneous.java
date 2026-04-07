@@ -23,12 +23,6 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Handler;
-import android.util.Log;
-import android.app.Activity;
-
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
@@ -46,12 +40,6 @@ import java.util.List;
 
 import lineageos.providers.LineageSettings;
 
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.Iterator;
-
 @SearchIndexable
 public class Miscellaneous extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -62,64 +50,23 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
     private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
     private static final String SYS_NETFLIX_SPOOF = "persist.sys.pixelprops.netflix";
-    private static final String KEY_PIF_JSON_FILE_PREFERENCE = "pif_json_file_preference";
 
     private Preference mPocketJudge;
-    private Preference mPifJsonFilePreference;
-
-    private Handler mHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHandler = new Handler();
+
         addPreferencesFromResource(R.xml.crdroid_settings_misc);
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
 
-        mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
-        
         mPocketJudge = (Preference) prefScreen.findPreference(POCKET_JUDGE);
         boolean mPocketJudgeSupported = res.getBoolean(
                 com.android.internal.R.bool.config_pocketModeSupported);
         if (!mPocketJudgeSupported)
             prefScreen.removePreference(mPocketJudge);
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference == mPifJsonFilePreference) {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("application/json");
-            startActivityForResult(intent, 10001);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 10001 && resultCode == Activity.RESULT_OK) {
-            Uri uri = data.getData();
-            Log.d(TAG, "URI received: " + uri.toString());
-            try (InputStream inputStream = getActivity().getContentResolver().openInputStream(uri)) {
-                if (inputStream != null) {
-                    String json = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-                    Log.d(TAG, "JSON data: " + json);
-                    JSONObject jsonObject = new JSONObject(json);
-                    for (Iterator<String> it = jsonObject.keys(); it.hasNext(); ) {
-                        String key = it.next();
-                        String value = jsonObject.getString(key);
-                        Log.d(TAG, "Setting property: persist.sys.pihooks_" + key + " = " + value);
-                        SystemProperties.set("persist.sys.pihooks_" + key, value);
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Error reading JSON or setting properties", e);
-            }
-        }
     }
 
     @Override
