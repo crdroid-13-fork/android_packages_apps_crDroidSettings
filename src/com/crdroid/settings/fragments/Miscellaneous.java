@@ -97,23 +97,17 @@ public class Miscellaneous extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-    if (preference == mPifJsonFilePreference) {
-        mPifJsonFilePreference.setOnPreferenceClickListener(pref -> {
+        mPifJsonFilePreference.setOnPreferenceClickListener(preference -> {
             openFileSelector(10001);
             return true;
-        });
-        return true;
-    } else if (preference == mGamePropsJsonFilePreference) {
-        mGamePropsJsonFilePreference.setOnPreferenceClickListener(pref -> {
+    });
+
+
+        mGamePropsJsonFilePreference.setOnPreferenceClickListener(preference -> {
             openFileSelector(10002);
             return true;
         });
-        
-        return true;
     }
-        return super.onPreferenceTreeClick(preference); // Default handling
-    }
-
    private void openFileSelector(int requestCode) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("application/json");
