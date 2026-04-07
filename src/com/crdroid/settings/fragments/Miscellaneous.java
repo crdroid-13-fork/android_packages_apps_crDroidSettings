@@ -40,12 +40,12 @@ import java.util.List;
 import lineageos.providers.LineageSettings;
 
 @SearchIndexable
-public class Miscellaneous extends SettingsPreferenceFragment {
+public class Miscellaneous extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "Miscellaneous";
 
     private static final String POCKET_JUDGE = "pocket_judge";
-    private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
 
     private Preference mPocketJudge;
 
@@ -78,7 +78,6 @@ public class Miscellaneous extends SettingsPreferenceFragment {
                 Settings.System.THREE_FINGER_GESTURE, 0, UserHandle.USER_CURRENT);
         LineageSettings.System.putIntForUser(resolver,
                 LineageSettings.System.AUTO_BRIGHTNESS_ONE_SHOT, 0, UserHandle.USER_CURRENT);
-        SystemProperties.set(SYS_GAMES_SPOOF, "false");
         GmsSwitch.reset(mContext);
         SensorBlock.reset(mContext);
     }
