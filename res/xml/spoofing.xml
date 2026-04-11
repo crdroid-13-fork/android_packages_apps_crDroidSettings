@@ -13,7 +13,7 @@
         android:title="@string/spoofing_system_wide_category">
 
         <!-- GMS spoof -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp.gms"
             android:title="@string/gms_spoof_title"
             android:summary="@string/gms_spoof_summary"
@@ -44,19 +44,19 @@
             android:dependency="persist.sys.pp.gms" />
 
         <!-- Keybox Data -->
-        <com.matrixx.settings.preferences.KeyboxDataPreference
+        <com.crdroid.settings.preferences.KeyboxDataPreference
             android:key="keybox_data_setting"
             android:title="@string/keybox_data_title" />
 
         <!-- Pixel props -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp"
             android:title="@string/spoofing_pixel_props_title"
             android:summary="@string/spoofing_pixel_props_summary"
             android:defaultValue="true" />
 
         <!-- Tensor features -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp.tensor"
             android:title="@string/tensor_spoof_title"
             android:summary="@string/tensor_spoof_summary"
@@ -68,36 +68,22 @@
         android:key="spoofing_app_specific_category"
         android:title="@string/spoofing_app_specific_category">
 
-        <!-- App Spoofing -->
-        <Preference
-            android:key="user_selectable_app_spoofing"
-            android:title="@string/user_selectable_app_spoofing_title"
-            android:summary="@string/user_selectable_app_spoofing_summary"
-            android:fragment="com.matrixx.settings.fragments.misc.UserSelectedAppSpoofSettings" />
-
         <!-- Play Store -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp.vending"
             android:title="@string/spoofing_vending_title"
             android:summary="@string/spoofing_vending_summary"
             android:defaultValue="true" />
 
         <!-- Google Photos -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp.photos"
             android:title="@string/use_photos_spoof_title"
             android:summary="@string/use_photos_spoof_summary"
             android:defaultValue="true" />
 
-        <!-- Snapchat -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
-            android:key="persist.sys.pp.snapchat"
-            android:title="@string/spoofing_snap_title"
-            android:summary="@string/spoofing_snap_summary"
-            android:defaultValue="false" />
-
         <!-- Vbmeta hash attestation -->
-        <com.matrixx.settings.preferences.SystemPropertySwitchPreference
+        <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.vbmeta.update"
             android:title="@string/vbmeta_attestation_title"
             android:summary="@string/vbmeta_attestation_summary"

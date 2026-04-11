@@ -1306,18 +1306,12 @@
     <string name="miscellaneous_developer_options_category">Developer options</string>
 
     <!-- Unlimited google photos storage -->
-    <string name="spoofing_snap_title">Snapchat</string>
-    <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
     <string name="spoofing_vending_title">Play Store</string>
     <string name="spoofing_vending_summary">Spoof the Play Store to the pi Pixel device</string>
     <string name="use_photos_spoof_title">Unlimited Photos storage</string>
     <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
     <string name="spoofing_summary">Device spoofing and misc.</string>
     <string name="spoofing_app_specific_category">App-Specific</string>
-    <string name="gameprops_title">Enable Games/Apps Props spoofing</string>
-    <string name="gameprops_summary">Spoof your device as different model for specific games/apps</string>
-    <string name="gameprops_load_json_title">Select Game/Apps Props JSON File</string>
-    <string name="gameprops_load_json_summary">Pick Game/Apps Props JSON file to be used for spoofing games/apps</string>
     <string name="spoofing_qsb_title">Google app</string>
     <string name="spoofing_qsb_summary">Spoof the Google app to the latest Pixel device to unlock exclusive features</string>
     <string name="tensor_spoof_title">Spoof tensor features</string>
