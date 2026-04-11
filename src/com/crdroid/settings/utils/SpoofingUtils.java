@@ -118,7 +118,7 @@ public class SpoofingUtils {
     private static String pickLastSorted(List<String> links) {
         if (links.isEmpty()) return null;
         Collections.sort(links);
-        return links.getLast();
+        return links.get(links.size() - 1);
     }
 
     private static void getLatestCanary() throws IOException {
