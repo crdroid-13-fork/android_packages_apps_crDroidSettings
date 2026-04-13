@@ -43,6 +43,13 @@
             android:summary="@string/pif_spoofing_summary"
             android:dependency="persist.sys.pp.gms" />
 
+        <!-- TrickyStore -->
+        <Preference
+            android:key="tricky_store"
+            android:title="@string/tricky_store_title"
+            android:summary="@string/tricky_store_summary"
+            android:fragment="com.crdroid.settings.fragments.misc.TrickyStore" />
+
         <!-- Pixel props -->
         <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp"
