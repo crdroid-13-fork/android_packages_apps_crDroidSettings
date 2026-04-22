@@ -41,6 +41,7 @@
     <!-- Component spoofing -->
     <Preference
          android:key="spoofing"
+         android:icon="@drawable/ic_spoof"
          android:title="@string/spoofing_title"
          android:summary="@string/spoofing_summary"
          android:fragment="com.crdroid.settings.fragments.misc.Spoofing" />
