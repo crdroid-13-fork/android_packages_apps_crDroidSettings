@@ -61,6 +61,7 @@
     <!-- Disable flash sms -->
      <com.crdroid.settings.preferences.SystemSettingSwitchPreference
          android:key="disable_flash_sms"
+         android:icon="@drawable/ic_flash_sms"
          android:title="@string/disable_flash_sms_title"
          android:summary="@string/disable_flash_sms_summary"
          android:defaultValue="false"/>
@@ -68,16 +69,18 @@
     <!-- Block PairIP license activity -->
      <com.crdroid.settings.preferences.SystemPropertySwitchPreference
          android:key="persist.sys.pairip.activity.block"
+         android:icon="@drawable/ic_chain"
          android:title="@string/miscellaneous_pairip_activity_block_title"
          android:summary="@string/miscellaneous_pairip_activity_block_summary"
          android:defaultValue="false" />
 
    <!-- Shake Gesture -->
      <Preference
-          android:key="gesture_shake_action"
-          android:title="@string/shake_gestures_enabled_title"
-          android:summary="@string/shake_gestures_enabled_summary"
-          android:fragment="com.crdroid.settings.fragments.misc.ShakeGestures" />
+         android:key="gesture_shake_action"
+         android:icon="@drawable/ic_shake_gesture"
+         android:title="@string/shake_gestures_enabled_title"
+         android:summary="@string/shake_gestures_enabled_summary"
+         android:fragment="com.crdroid.settings.fragments.misc.ShakeGestures" />
 
     <!-- Parallel space -->
     <Preference
