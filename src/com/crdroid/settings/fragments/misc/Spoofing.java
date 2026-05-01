@@ -472,7 +472,7 @@ public class Spoofing extends SettingsPreferenceFragment implements
             return true;
         }
         if (preference == mGoogleSpoof
-            || preference == mGphotosSpoof {
+            || preference == mGphotosSpoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
