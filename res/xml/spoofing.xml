@@ -43,11 +43,6 @@
             android:summary="@string/pif_spoofing_summary"
             android:dependency="persist.sys.pp.gms" />
 
-        <!-- Keybox Data -->
-        <com.crdroid.settings.preferences.KeyboxDataPreference
-            android:key="keybox_data_setting"
-            android:title="@string/keybox_data_title" />
-
         <!-- Pixel props -->
         <com.crdroid.settings.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pp"
