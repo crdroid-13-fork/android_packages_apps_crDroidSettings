@@ -59,7 +59,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.crdroid.settings.preferences.KeyboxDataPreference;
 import com.crdroid.settings.preferences.SystemPropertySwitchPreference;
 import com.crdroid.settings.utils.DeviceUtils;
 import com.crdroid.settings.utils.SpoofingUtils;
@@ -89,7 +88,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
     private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
 
     private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
-    private KeyboxDataPreference mKeyboxDataPreference;
     private Preference mPifJsonFilePreference;
     private Preference mGamePropsJsonFilePreference;
     private Preference mUpdateJsonButton;
@@ -162,9 +160,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
             if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
             Uri uri = result.getData().getData();
             Preference pref = findPreference(KEYBOX_DATA_KEY);
-            if (pref instanceof KeyboxDataPreference) {
-                ((KeyboxDataPreference) pref).handleFileSelected(uri);
-            }
         }
     }
     );
@@ -213,10 +208,6 @@ public class Spoofing extends SettingsPreferenceFragment implements
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
-        if (mKeyboxDataPreference != null) {
-            mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
-        }
     }
 
     @Override
