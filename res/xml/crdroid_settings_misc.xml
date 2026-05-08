@@ -38,6 +38,14 @@
     <PreferenceCategory
          android:title="@string/spoofing_category">
 
+    <!-- Play Integrity Fix -->
+    <Preference
+        android:key="play_integrity_fix"
+        android:icon="@drawable/ic_fingerprint"
+        android:title="@string/play_integrity_fix_title"
+        android:summary="@string/play_integrity_fix_summary"
+        android:fragment="com.crdroid.settings.fragments.misc.PlayIntegrityFix" />
+
     <!-- TrickyStore -->
     <Preference
         android:key="tricky_store"
