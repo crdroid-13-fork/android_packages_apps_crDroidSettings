@@ -57,6 +57,7 @@
     <!-- Hide applist -->
     <Preference
         android:key="hide_applist_setting"
+        android:icon="@drawable/ic_hide_applist"
         android:title="@string/hide_applist_title"
         android:summary="@string/hide_applist_summary"
         android:fragment="com.crdroid.settings.fragments.misc.HideAppListSettings" />
@@ -64,6 +65,7 @@
     <!-- Vbmeta hash attestation -->
     <com.crdroid.settings.preferences.SystemPropertySwitchPreference
         android:key="persist.sys.vbmeta.update"
+        android:icon="@drawable/ic_vbmeta"
         android:title="@string/vbmeta_attestation_title"
         android:summary="@string/vbmeta_attestation_summary"
         android:defaultValue="false" />
