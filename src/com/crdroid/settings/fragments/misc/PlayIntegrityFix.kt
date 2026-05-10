@@ -87,11 +87,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
             true
         }
 
-        findPreference<SwitchPreferenceCompat>("pif_spoof_photos")?.setOnPreferenceChangeListener { _, newValue ->
-            updateConfigValue("spoofPhotos", (newValue as Boolean).toString())
-            true
-        }
-
         refreshStatus()
     }
 
@@ -121,9 +116,6 @@ class PlayIntegrityFix : SettingsPreferenceFragment() {
         }
 
         findPreference<Preference>("pif_delete_config")?.isEnabled = exists
-
-        val spoofPhotos = activeConfigData["spoofPhotos"]?.let { it == "true" || it == "1" } ?: false
-        findPreference<SwitchPreferenceCompat>("pif_spoof_photos")?.isChecked = spoofPhotos
 
         populateConfigDetails(activeConfigData)
     }
